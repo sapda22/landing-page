@@ -2,9 +2,9 @@
   --blue: #3F7BD9;
   --blue-dark: #2C5FB0;
   --blue-soft: #EEF4FD;
-  --gold: #D4A94F;
-  --gold-dark: #B88C33;
-  --gold-soft: #FBF5E8;
+  --gold: #E5A637;
+  --gold-dark: #C98C1F;
+  --gold-soft: #FDF4E3;
   --ink: #1B2638;
   --muted: #5B6679;
   --line: #E3E9F2;
@@ -53,14 +53,7 @@ a { color: inherit; }
   gap: 12px;
 }
 .brand { display: flex; align-items: center; gap: 10px; text-decoration: none; }
-.brand__mark {
-  width: 40px; height: 40px;
-  display: grid; place-items: center;
-  border-radius: 12px;
-  background: linear-gradient(135deg, var(--blue), var(--blue-dark));
-  color: #fff; font-weight: 800; font-size: 15px; letter-spacing: .5px;
-  box-shadow: inset 0 -3px 0 var(--gold);
-}
+.brand__mark { width: 36px; height: 36px; display: block; }
 .brand__text { display: flex; flex-direction: column; line-height: 1.15; }
 .brand__text strong { font-size: 17px; }
 .brand__text small { font-size: 12.5px; color: var(--muted); }
@@ -89,7 +82,7 @@ a { color: inherit; }
   transition: transform .15s ease, box-shadow .15s ease, background .15s ease;
 }
 .btn:hover { transform: translateY(-2px); }
-.btn--gold { background: var(--gold); color: #fff; box-shadow: 0 8px 20px rgba(212, 169, 79, .35); }
+.btn--gold { background: var(--gold); color: var(--ink); box-shadow: 0 8px 20px rgba(229, 166, 55, .35); }
 .btn--gold:hover { background: var(--gold-dark); }
 .btn--ghost { color: var(--blue-dark); border: 2px solid var(--line); background: #fff; }
 .btn--ghost:hover { border-color: var(--blue); }
@@ -124,15 +117,19 @@ a { color: inherit; }
 
 .hero__visual { position: relative; display: grid; place-items: center; min-height: 360px; }
 .portrait, .about__photo {
-  display: grid; place-items: center;
-  border-radius: 50%;
-  background: linear-gradient(160deg, var(--blue) 0%, var(--blue-dark) 100%);
-  color: rgba(255,255,255,.9); font-weight: 800;
-  box-shadow: 0 0 0 10px #fff, 0 0 0 12px var(--gold-soft), var(--shadow);
+  background: var(--blue-soft);
+  box-shadow: var(--shadow);
   overflow: hidden;
 }
-.portrait { width: 300px; height: 300px; font-size: 72px; }
-.portrait img, .about__photo img { width: 100%; height: 100%; object-fit: cover; }
+.portrait {
+  width: 340px; aspect-ratio: 4 / 5;
+  border-radius: 32px 32px 32px 120px;
+  border: 6px solid #fff;
+  outline: 2px solid var(--gold);
+  outline-offset: 8px;
+}
+.about__photo { border-radius: 50%; border: 6px solid #fff; outline: 2px solid var(--gold); outline-offset: 6px; }
+.portrait img, .about__photo img { display: block; width: 100%; height: 100%; object-fit: cover; }
 .float-card {
   position: absolute;
   display: flex; flex-direction: column;
@@ -143,8 +140,8 @@ a { color: inherit; }
   animation: float 5s ease-in-out infinite;
 }
 .float-card strong { color: var(--gold-dark); font-size: 18px; }
-.float-card--one { top: 20px; left: 0; }
-.float-card--two { bottom: 24px; right: 0; animation-delay: -2.5s; }
+.float-card--one { top: 40px; left: -8px; }
+.float-card--two { bottom: 48px; right: -8px; animation-delay: -2.5s; }
 @keyframes float { 50% { transform: translateY(-8px); } }
 
 /* ---------- Sections ---------- */
@@ -184,7 +181,7 @@ a { color: inherit; }
 .step p { color: var(--muted); margin: 0; }
 
 .about { display: grid; grid-template-columns: auto 1fr; gap: 56px; align-items: center; max-width: 900px; }
-.about__photo { width: 220px; height: 220px; font-size: 56px; }
+.about__photo { width: 240px; height: 240px; }
 .about h2 { font-size: clamp(28px, 3.6vw, 38px); font-weight: 800; }
 .about p { color: var(--muted); font-size: 17px; }
 
@@ -228,15 +225,17 @@ a { color: inherit; }
   .hero__inner { grid-template-columns: 1fr; gap: 32px; text-align: center; }
   .hero__cta { justify-content: center; }
   .lead { margin-inline: auto; }
-  .hero__visual { min-height: 280px; order: -1; }
-  .portrait { width: 200px; height: 200px; font-size: 52px; }
+  .hero__visual { min-height: 0; order: -1; }
+  .portrait { width: 230px; border-radius: 24px 24px 24px 80px; }
+  .float-card--one { top: 24px; left: 0; }
+  .float-card--two { bottom: 24px; right: 0; }
   .float-card { padding: 8px 12px; font-size: 12.5px; }
   .float-card strong { font-size: 15px; }
 
   .section { padding: 56px 0; }
   .cards, .steps { grid-template-columns: 1fr; }
   .about { grid-template-columns: 1fr; gap: 28px; text-align: center; justify-items: center; }
-  .about__photo { width: 160px; height: 160px; font-size: 42px; }
+  .about__photo { width: 180px; height: 180px; }
 
   .footer__inner { flex-direction: column; text-align: center; }
   .footer__links { display: flex; justify-content: center; margin: 8px 0 0; }
